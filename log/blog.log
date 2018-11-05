@@ -1,0 +1,32 @@
+[2018-11-02 16:03:05,998] [INFO] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1819
+[2018-11-02 16:03:06,035] [WARNING] Not Found: /static/admin/css/base.css
+[2018-11-02 16:03:06,035] [WARNING] "GET /static/admin/css/base.css HTTP/1.1" 404 99
+[2018-11-02 16:03:06,046] [WARNING] Not Found: /static/admin/css/responsive.css
+[2018-11-02 16:03:06,046] [WARNING] "GET /static/admin/css/responsive.css HTTP/1.1" 404 105
+[2018-11-02 16:03:06,048] [WARNING] Not Found: /static/admin/css/login.css
+[2018-11-02 16:03:06,048] [WARNING] "GET /static/admin/css/login.css HTTP/1.1" 404 100
+[2018-11-02 16:03:06,389] [INFO] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1819
+[2018-11-02 16:03:06,416] [WARNING] Not Found: /static/admin/css/base.css
+[2018-11-02 16:03:06,416] [WARNING] "GET /static/admin/css/base.css HTTP/1.1" 404 99
+[2018-11-02 16:03:06,430] [WARNING] Not Found: /static/admin/css/responsive.css
+[2018-11-02 16:03:06,430] [WARNING] "GET /static/admin/css/responsive.css HTTP/1.1" 404 105
+[2018-11-02 16:03:06,432] [WARNING] Not Found: /static/admin/css/login.css
+[2018-11-02 16:03:06,432] [WARNING] "GET /static/admin/css/login.css HTTP/1.1" 404 100
+[2018-11-02 16:03:06,917] [INFO] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1819
+[2018-11-02 16:03:06,947] [WARNING] Not Found: /static/admin/css/base.css
+[2018-11-02 16:03:06,947] [WARNING] "GET /static/admin/css/base.css HTTP/1.1" 404 99
+[2018-11-02 16:03:06,959] [WARNING] Not Found: /static/admin/css/login.css
+[2018-11-02 16:03:06,960] [WARNING] "GET /static/admin/css/login.css HTTP/1.1" 404 100
+[2018-11-02 16:03:06,961] [WARNING] Not Found: /static/admin/css/responsive.css
+[2018-11-02 16:03:06,961] [WARNING] "GET /static/admin/css/responsive.css HTTP/1.1" 404 105
+[2018-11-02 16:03:07,287] [INFO] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1819
+[2018-11-02 16:03:07,316] [WARNING] Not Found: /static/admin/css/base.css
+[2018-11-02 16:03:07,316] [WARNING] "GET /static/admin/css/base.css HTTP/1.1" 404 99
+[2018-11-02 16:03:07,329] [WARNING] Not Found: /static/admin/css/login.css
+[2018-11-02 16:03:07,329] [WARNING] "GET /static/admin/css/login.css HTTP/1.1" 404 100
+[2018-11-02 16:03:07,330] [WARNING] Not Found: /static/admin/css/responsive.css
+[2018-11-02 16:03:07,331] [WARNING] "GET /static/admin/css/responsive.css HTTP/1.1" 404 105
+[2018-11-02 16:03:34,952] [ERROR] Invalid HTTP_HOST header: 'www.xunyitongxin.com'. You may need to add 'www.xunyitongxin.com' to ALLOWED_HOSTS.
+[2018-11-02 16:03:34,952] [WARNING] Bad Request: /api/ticket.php
+[2018-11-02 16:03:34,953] [WARNING] "POST /api/ticket.php?signature=45c7404b233bdf95029a1bcedf52cc933db3f86b&timestamp=1541174614&nonce=1729140681&encrypt_type=aes&msg_signature=ef99e5c46ec9849e93918b72e9ae67a76ea4080b HTTP/1.1" 400 26
+[2018-11-02 16:03:34,953] [ERROR] "POST /api/ticket.php?signature=45c7404b233bdf95029a1bcedf52cc933db3f86b&timestamp=1541174614&nonce=1729140681&encrypt_type=aes&msg_signature=ef99e5c46ec9849e93918b72e9ae67a76ea4080b HTTP/1.1" 500 59
