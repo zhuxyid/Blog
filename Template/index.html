@@ -2,7 +2,6 @@
 <html lang="en">
 
   <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -24,12 +23,12 @@
   </head>
 
   <body id="page-top">
-
+{% for row in info %}
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
-        <span class="d-block d-lg-none">坚持下去总有一天会如你所愿</span>
+        <span class="d-block d-lg-none">{{ row.motto }}</span>
         <span class="d-none d-lg-block">
-          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="../static/img/profile.jpg" alt="">
+          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{ row.img }}" alt="">
         </span>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,26 +61,31 @@
         <div class="my-auto">
           <h1 class="mb-0">Zhu
             <span class="text-primary">xu yue</span>
-          </h1><hr>
+          </h1>
+
+            {{ row.email }}
+                <hr>
           <div class="lead mb-5">
-            <a>zhuxyid@gmail.com</a>
+            {{ row.motto }}
           </div>
-          <p class="lead mb-5">{{ webinfomation }}</p>
+          <p class="lead mb-5">{{ row.summary }}</p>
           <div class="social-icons">
-            <a href="https://weibo.com/zhuxyid">
+            <a href="{{ row.wblink }}">
               <i class="fab fa-weibo"></i>
             </a>
-            <a href="https://github.com/zhuxyid">
+            <a href="{{ row.gitlink }}">
               <i class="fab fa-github"></i>
             </a>
-            <a href="https://instagram.com/zhuxyid/">
+            <a href="{{ row.inslink }}">
               <i class="fab fa-instagram"></i>
             </a>
-            <a href="https://instagram.com/zhuxyid/">
+            <a href="{{ row.wxlink }}">
               <i class="fab fa-weixin"></i>
             </a>
           </div>
+            {% endfor %}
         </div>
+
       </section>
 
       <hr class="m-0">
