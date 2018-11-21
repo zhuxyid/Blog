@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -21,18 +20,36 @@
     <link href="../static/css/resume.min.css" rel="stylesheet">
     <script type="text/javascript">
     function  showImg(){
-            document.getElementById("wxImg").style.display='block';
-        }
-        function hideImg(){
-            document.getElementById("wxImg").style.display='none';
-        }
+        document.getElementById("wxImg").style.display='block';
+    }
+    function hideImg(){
+        document.getElementById("wxImg").style.display='none';
+    }
+
     </script>
+    <style>
+        .w {
+            width: 100%;
+            margin: 0 auto;
+        }
+        .item {
+            width: 25%;
+            float:left;
+        }
+        .item img {
+            width: 100%;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            border:5px white solid;
+        }
+    </style>
   </head>
 
-  <body id="page-top">
-{% for row in info %}
+<body id="page-top">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+{% for row in info %}
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
+
         <span class="d-block d-lg-none">{{ row.motto }}</span>
         <span class="d-none d-lg-block">
           <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{ row.img }}" alt="">
@@ -61,17 +78,14 @@
         </ul>
       </div>
     </nav>
-
     <div class="container-fluid p-0">
-
       <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
         <div class="my-auto">
           <h1 class="mb-0">Zhu
             <span class="text-primary">xu yue</span>
           </h1>
-
             {{ row.email }}
-                <hr>
+            <hr>
           <div class="lead mb-5">
             {{ row.motto }}
           </div>
@@ -89,23 +103,19 @@
             <a onmouseout="hideImg()" onmouseover="showImg()">
               <i class="fab fa-weixin"></i>
             </a>
-          <div id="wxImg" style="display: none;height:20px;back-ground:#f00;position:absolute;right:400px;top:330px"><img src="{{ row.wximg }}"></div>
+          <div id="wxImg" style="display: none;height:20px;back-ground:#f00;position:absolute;float:left;"><img src="{{ row.wximg }}"></div>
           </div>
-            {% endfor %}
         </div>
-
+{% endfor %}
       </section>
 
       <hr class="m-0">
-
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="experience">
         <div class="my-auto">
-          <h2 class="mb-5">懂啥......</h2>
-
           <div class="resume-item d-flex flex-column flex-md-row mb-5">
             <div class="resume-content mr-auto">
-              <h3 class="mb-0">野路子学习</h3>
-              <div class="subheading mb-3">OS:</div>
+              <h4 class="mb-3">Knowledge</h4>
+              <div class="subheading mb-3">Platform:</div>
               <p>Windows，Linux，Macos</p>
               <div class="subheading mb-3">Dev:</div>
               <p>Shell,Python</p>
@@ -122,9 +132,20 @@
               <span class="text-primary">2012~2018</span>
             </div>
           </div>
-
         </div>
-
+        <div class="my-auto">
+          <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+              <h4 class="mb-0">Studing</h4>
+                <p>Crawler</p>
+                <p>K8s</p>
+                <p>Go</p>
+            </div>
+            <div class="resume-date text-md-right">
+              <span class="text-primary">2018~2020</span>
+            </div>
+          </div>
+        </div>
       </section>
 
       <hr class="m-0">
@@ -140,7 +161,7 @@
                   </button>
                   <ol class="fa-ul mb-0">
                     <li><a href="#">Linux Base</a></li>
-                    <li><a href="#">Linux Safe</a></li>
+                    <li><a href="#">Linux Safety</a></li>
                     <li><a href="#">Linux Script</a></li>
                     <li><a href="#">Linux BaseServer</a></li>
                   </ol>
@@ -224,9 +245,18 @@
       <hr class="m-0">
 
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="photo">
-        <div class="my-auto">
-          <h2 class="mb-5">photo</h2>
-          <p class="mb-0">太帅了导致图片无法显示</p>
+{#        <div class="my-auto">#}
+{#          <h4 class="mb-5">photo</h4>#}
+{#        </div>#}
+        <div class="w" id="container">
+            <div class="item">
+            </div>
+            <div class="item">
+            </div>
+            <div class="item">
+            </div>
+            <div class="item">
+            </div>
         </div>
       </section>
 
@@ -240,7 +270,51 @@
 
     <!-- Plugin JavaScript -->
     <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
-
+    <script>
+    $(function() {
+        initImg();
+        scrollEvent();})
+    NID = 0;
+    LASTPOSTION=3;  //取图片最好一个位置
+    function initImg(){
+        $.ajax({
+            url:'/get_img.html',
+            type:'GET',
+            data: {nid:NID},
+            dataType: 'JSON',
+            success:function(arg){
+                var img_list = arg.DATA;
+                $.each(img_list,function(index,v){
+                    console.log(index,v);
+                    var eqv = (index+LASTPOSTION+1) % 4;
+                    var tag = document.createElement('img');
+                    tag.src = '/'+ v.src
+                    $('#container').children().eq(eqv).append(tag)
+                    //当循环到最后，一个图片时，将图片的ID赋值给NID
+                    if(index+1==img_list.length){
+                        //NID==v.id
+                        LASTPOSTION = eqv;
+                    }
+                })
+            }
+        })
+    }
+    function scrollEvent(){
+        $(window).scroll(function(){
+            //什么时候到达最底部
+            //文档高度，整个HTML全部占用多高，body多高
+            var docHeight= $(document).height();
+            //窗口高度，窗口高度和文档高度差了滚动条的高度
+            var winHeight = $(window).height();
+            //滚动条可滑动高度
+            var scrollTop = $(window).scrollTop();
+            if(winHeight+scrollTop == docHeight){
+                console.log(1)
+                initImg()
+            }
+        })
+    }
+    </script>
     <!-- Custom scripts for this template -->
     <script src="../static/js/resume.min.js"></script>
 

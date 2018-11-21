@@ -20,4 +20,5 @@ from web import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index),
+    path('get_img.html', views.get_img)
 ]
