@@ -18,6 +18,8 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="5-前端" />
     <orderEntry type="module" module-name="8-django" />
+    <orderEntry type="module" module-name="2-函数" />
+    <orderEntry type="module" module-name="8-django" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />
